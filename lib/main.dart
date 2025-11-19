@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/account_settings.dart';
-import 'package:jurnalku_mobile/screens/general/login_page.dart';
+import 'package:jurnalku_mobile/screens/general/usage_guide_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: const AccountSettings(),
+      home: const UsageGuidePage(),
     );
   }
 }
