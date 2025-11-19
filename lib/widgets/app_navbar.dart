@@ -1,16 +1,28 @@
+// lib/widgets/app_navbar.dart
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:jurnalku_mobile/screens/general/account_settings.dart';
+import 'package:jurnalku_mobile/screens/profile/student_profile_page.dart';
 
 class AppNavbar extends StatelessWidget {
   final String name;
   final String kelas;
-  final String photoUrl;
+  final String? photoUrl;
+  final VoidCallback? onProfileTap;
+  final bool showBackButton;
+  final String? title;
+  final bool isProfilePage; // true = hanya ikon Settings
 
   const AppNavbar({
-    super.key,
+    Key? key,
     required this.name,
     required this.kelas,
-    required this.photoUrl,
-  });
+    this.photoUrl,
+    this.onProfileTap,
+    this.showBackButton = false,
+    this.title,
+    this.isProfilePage = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,59 +32,106 @@ class AppNavbar extends StatelessWidget {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 6,
-            offset: const Offset(0, 3),
-          )
+            color: Colors.black.withOpacity(0.06),
+            blurRadius: 12,
+            offset: const Offset(0, 4),
+          ),
         ],
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            children: [
-              const Icon(
-                Icons.home_outlined,
-                color: Color(0xFF6e7d93),
-                size: 28,
-              ),
-              const SizedBox(width: 12),
-            ],
-          ),
-
-          Row(
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
+      child: SafeArea(
+        child: Row(
+          children: [
+            // === KIRI: Home atau Back Button ===
+            if (showBackButton)
+              IconButton(
+                icon: const Icon(Icons.arrow_back_ios_new, size: 22),
+                onPressed: () => Navigator.pop(context),
+              )
+            else
+              Row(
                 children: [
-                  Text(
-                    name,
-                    style: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                    ),
+                  IconButton(
+                    icon: const Icon(Icons.home_outlined, size: 28),
+                    color: const Color(0xFF6E7D93),
+                    onPressed: () => Navigator.popUntil(context, (route) => route.isFirst),
                   ),
+                  const SizedBox(width: 8),
+                  const Icon(Icons.chevron_right, color: Colors.grey, size: 18),
+                  const SizedBox(width: 4),
                   Text(
-                    kelas,
-                    style: TextStyle(
-                      color: Color(0xFF71758a),
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
-                    ),
+                    title ?? "Dashboard",
+                    style: const TextStyle(fontSize: 15, color: Colors.grey),
                   ),
                 ],
               ),
-              const SizedBox(width: 12),
 
-              CircleAvatar(
-                radius: 22,
-                backgroundImage: NetworkImage(photoUrl),
+            const Spacer(),
+
+            // === KANAN: Dinamis ===
+            if (isProfilePage)
+              // HANYA IKON SETTINGS (tanpa nama & kelas)
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (_) => const AccountSettings()),
+                  );
+                },
+                child: Container(
+                  padding: const EdgeInsets.all(14),
+                  child: Icon(
+                    Icons.settings,
+                    color: Colors.black.withOpacity(0.8),
+                    size: 26,
+                  ),
+                ),
               )
-            ],
-          )
-          
-        ],
+            else
+              // Normal: Nama + Kelas + Foto Profil
+              GestureDetector(
+                onTap: onProfileTap ??
+                    () {
+                      // Default: ke halaman profil
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const StudentProfilePage()),
+                      );
+                    },
+                child: Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Text(
+                          name,
+                          style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+                        ),
+                        Text(
+                          kelas,
+                          style: const TextStyle(fontSize: 12, color: Colors.grey),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(width: 14),
+                    CircleAvatar(
+                      radius: 22,
+                      backgroundColor: Colors.grey[200],
+                      child: ClipOval(
+                        child: CachedNetworkImage(
+                          imageUrl: photoUrl ?? "",
+                          fit: BoxFit.cover,
+                          width: 44,
+                          height: 44,
+                          placeholder: (_, __) => Container(color: Colors.grey[300]),
+                          errorWidget: (_, __, ___) => const Icon(Icons.person, color: Colors.grey),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+          ],
+        ),
       ),
     );
   }

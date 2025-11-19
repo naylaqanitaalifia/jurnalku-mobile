@@ -1,6 +1,8 @@
+// main.dart
 import 'package:flutter/material.dart';
-import 'screens/account_settings.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:jurnalku_mobile/screens/general/login_page.dart';
+import 'package:jurnalku_mobile/screens/main_wrapper.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +14,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Jurnalku',
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      home: const AccountSettings(),
+      theme: ThemeData(
+        useMaterial3: true,
+        fontFamily: GoogleFonts.poppins().fontFamily,
+        scaffoldBackgroundColor: const Color(0xFFF8FAFC),
+      ),
+      home: const LoginPage(), // ← tetap login dulu
+      // home: const MainWrapper(), // ← uncomment kalau mau langsung ke dashboard (untuk testing)
     );
   }
 }
