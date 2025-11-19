@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screens/account_settings.dart';
 import 'package:jurnalku_mobile/screens/general/login_page.dart';
 
 void main() {
@@ -11,9 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Jurnalku Mobile',
-      home: LoginPage(),
       debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      home: const AccountSettings(),
     );
   }
 }
