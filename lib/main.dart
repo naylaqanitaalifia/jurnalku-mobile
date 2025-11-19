@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/account_settings.dart';
+import 'screens/witness_request.dart';
 
 void main() {
   runApp(const MyApp());

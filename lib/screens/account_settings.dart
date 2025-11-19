@@ -14,6 +14,7 @@ class _AccountSettingsState extends State<AccountSettings> {
 
   Widget build(BuildContext context) {
     return Scaffold (
+      backgroundColor: Colors.white,
       body: Column(
         children: [
           AppNavbar(
