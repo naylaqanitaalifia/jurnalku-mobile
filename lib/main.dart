@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/account_settings.dart';
+import 'package:jurnalku_mobile/screens/general/login_page.dart';
 
 void main() {
   runApp(const MyApp());
