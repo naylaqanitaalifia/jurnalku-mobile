@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:from_css_color/from_css_color.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -297,6 +298,66 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
+
+            Container(
+              width: double.infinity,
+              color: fromCssColor("#02398C"),
+              child: Padding(
+                padding: const EdgeInsets.all(30),
+                child: Center(
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            FontAwesomeIcons.whatsapp,
+                            color: Colors.white,
+                            size: 30,
+                          ),
+                
+                          const SizedBox(width: 20),
+                
+                          Icon(
+                            FontAwesomeIcons.instagram,
+                            color: Colors.white,
+                            size: 30,
+                          ),
+                
+                          const SizedBox(width: 20),
+                
+                          Icon(
+                            FontAwesomeIcons.linkedin,
+                            color: Colors.white,
+                            size: 30,
+                          ),
+                
+                          const SizedBox(width: 20),
+                
+                          Icon(
+                            FontAwesomeIcons.youtube,
+                            color: Colors.white,
+                            size: 30,
+                          ),
+                        ],
+                      ),
+                
+                      const SizedBox(height: 20),
+                
+                      Text(
+                        "© GEN-28 PPLG SMK Wikrama Bogor. All Right \n Reserved.",
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  )
+                ),
+              ),
+            )
           ],
         ),
       ),
