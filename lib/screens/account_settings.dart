@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jurnalku_mobile/widgets/app_input_field.dart';
 import 'package:jurnalku_mobile/widgets/app_navbar.dart';
+import 'package:jurnalku_mobile/utils/app_colors.dart';
 
 class AccountSettings extends StatefulWidget {
   const AccountSettings({super.key});
@@ -14,7 +15,7 @@ class _AccountSettingsState extends State<AccountSettings> {
 
   Widget build(BuildContext context) {
     return Scaffold (
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.bgColor,
       body: Column(
         children: [
           AppNavbar(

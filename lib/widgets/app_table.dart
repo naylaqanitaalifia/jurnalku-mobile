@@ -4,10 +4,17 @@ class AppTable extends StatelessWidget {
   final List<String> headers;
   final List<Map<String, dynamic>> rows;
 
-  const AppTable({
+  final IconData emptyIcon;
+  final String emptyTitle;
+  final String emptySubtitle;
+
+  AppTable({
     super.key,
     required this.headers,
     required this.rows,
+    required this.emptyIcon,
+    required this.emptyTitle,
+    required this.emptySubtitle,
   });
 
   @override
@@ -23,7 +30,7 @@ class AppTable extends StatelessWidget {
           Container(
             padding: const EdgeInsets.symmetric(vertical: 16),
             decoration: BoxDecoration(
-              color: Color(0xFFf9fafb),
+              color: Color(0xFFf5f6f8),
               border: Border.all(
                 color: Color(0xFFebeef3),
               ),
@@ -61,6 +68,7 @@ class AppTable extends StatelessWidget {
                 return Container(
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   decoration: BoxDecoration(
+                    color: Colors.white,
                     border: index == rows.length - 1
                       ? Border(
                         left: BorderSide(color: Color(0xFFebeef3)),
@@ -107,6 +115,7 @@ class AppTable extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 32),
       decoration: BoxDecoration(
+        color: Colors.white,
         border: Border(
           left: BorderSide(color: Color(0xFFebeef3)),
           right: BorderSide(color: Color(0xFFebeef3)),
@@ -124,14 +133,14 @@ class AppTable extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Icon(
-                Icons.groups_outlined,
+                emptyIcon,
                 size: 52,
                 color: Color(0xFF9ca3af),
               ),
               const SizedBox(height: 24),
 
               Text(
-                'Belum ada permintaan',
+                emptyTitle,
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 20,
@@ -141,7 +150,7 @@ class AppTable extends StatelessWidget {
               const SizedBox(height: 16),
 
               Text(
-                'Belum ada yang mengirim permintaan saksi kepada Anda',
+                emptySubtitle,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Color(0xFF71758a),

@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+// import 'package:intl/date_symbol_data_local.dart';
+// import 'package:flutter_localizations/flutter_localizations.dart';
+
 import 'screens/account_settings.dart';
 import 'screens/witness_request.dart';
+import 'screens/attitude_notes.dart';
 
-void main() {
+void main() async {
+  // WidgetsFlutterBinding.ensureInitialized();
+
+  // await initializeDateFormatting('id_ID', null);
+
   runApp(const MyApp());
 }
 
@@ -14,7 +22,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: const AccountSettings(),
+
+      // locale: const Locale('id', 'ID'),
+      // supportedLocales: const [
+      //   Locale('id', 'ID'),
+      // ],
+      // localizationsDelegates: const [
+      //   GlobalMaterialLocalizations.delegate,
+      //   GlobalWidgetsLocalizations.delegate,
+      //   GlobalCupertinoLocalizations.delegate,
+      // ],
+
+      home: const AttitudeNotes(),
     );
   }
 }
