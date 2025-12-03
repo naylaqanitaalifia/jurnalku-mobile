@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'screens/account_settings.dart';
-import 'package:jurnalku_mobile/screens/general/usage_guide_page.dart';
+// import 'screens/account_settings.dart';
+// import 'package:jurnalku_mobile/screens/general/usage_guide_page.dart';
+import 'package:jurnalku_mobile/screens/general/explore_students_direction.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: const UsageGuidePage(),
+      home: const StudentDirectory(),
     );
   }
 }
