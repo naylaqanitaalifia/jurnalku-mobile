@@ -11,6 +11,15 @@ class AccountSettings extends StatefulWidget {
 }
 
 class _AccountSettingsState extends State<AccountSettings> {
+  final TextEditingController namaController =
+  TextEditingController(text: 'Nayla Qanita Alifia');
+  final TextEditingController nisController =
+    TextEditingController(text: '123456789');
+  final TextEditingController rombelController =
+    TextEditingController(text: 'PPLG XII-5');
+  final TextEditingController rayonController =
+    TextEditingController(text: 'Ciawi 1');
+
   @override
 
   Widget build(BuildContext context) {
@@ -26,7 +35,7 @@ class _AccountSettingsState extends State<AccountSettings> {
           Expanded(
             child: SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.all(20),
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -38,7 +47,7 @@ class _AccountSettingsState extends State<AccountSettings> {
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                      const SizedBox(height: 12),
+                      const SizedBox(height: 8),
 
                       Row(
                         children: [
@@ -60,7 +69,7 @@ class _AccountSettingsState extends State<AccountSettings> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 24),
 
                       Container(
                         padding: const EdgeInsets.all(20),
@@ -132,7 +141,7 @@ class _AccountSettingsState extends State<AccountSettings> {
                             Text(
                               'Klik untuk mengubah foto',
                               style: TextStyle(
-                                color: Color(0xFF71758a),
+                                color: AppColors.textSecondary,
                                 fontSize: 14,
                                 fontWeight: FontWeight.normal,
                               ),
@@ -141,24 +150,28 @@ class _AccountSettingsState extends State<AccountSettings> {
 
                             AppInputField(
                               label: 'Nama',
+                              controller: namaController,
                               readOnly: true,
                             ),
                             const SizedBox(height: 12),
 
                             AppInputField(
                               label: 'NIS',
+                              controller: nisController,
                               readOnly: true,
                             ),
                             const SizedBox(height: 12),
 
                             AppInputField(
                               label: 'Rombel',
+                              controller: rombelController,
                               readOnly: true,
                             ),
                             const SizedBox(height: 12),
 
                             AppInputField(
                               label: 'Rayon',
+                              controller: rayonController,
                               readOnly: true,
                             ),
                           ],
@@ -167,7 +180,7 @@ class _AccountSettingsState extends State<AccountSettings> {
                       const SizedBox(height: 20),
 
                       Container(
-                        padding: const EdgeInsets.all(16),
+                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           border: Border.all(

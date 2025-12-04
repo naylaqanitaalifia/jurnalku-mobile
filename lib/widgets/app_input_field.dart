@@ -53,6 +53,8 @@ class _AppInputFieldState extends State<AppInputField> {
           readOnly: widget.readOnly,
 
           decoration: InputDecoration(
+            contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+
             hintText: widget.hintText,
             hintStyle: TextStyle(
               color: Color(0xFF9ea6b4),

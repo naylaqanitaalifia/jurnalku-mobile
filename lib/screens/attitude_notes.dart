@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jurnalku_mobile/utils/app_colors.dart';
+import 'package:jurnalku_mobile/widgets/app_info_expand_card.dart';
 import 'package:jurnalku_mobile/widgets/app_navbar.dart';
-import 'package:jurnalku_mobile/widgets/app_table.dart';
 import 'package:jurnalku_mobile/widgets/app_statistic_card.dart';
 
 class AttitudeNotes extends StatelessWidget {
@@ -33,13 +33,13 @@ const AttitudeNotes({super.key});
                           fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const SizedBox(height: 12),
+                    const SizedBox(height: 8),
                     Text(
                       'Lihat catatan sikap dan perilaku yang telah dilaporkan',
                       style: TextStyle(
                           color: AppColors.textSecondary,
                           fontSize: 16,
-                          fontWeight: FontWeight.w500,
+                          fontWeight: FontWeight.normal,
                       ),
                     ),
                     const SizedBox(height: 32),
@@ -118,42 +118,29 @@ const AttitudeNotes({super.key});
                     ),
                     SizedBox(height: 32),
 
-                    // TABLE
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: ConstrainedBox(
-                        constraints: BoxConstraints(
-                          minWidth: MediaQuery.of(context).size.width,
-                          maxWidth: MediaQuery.of(context).size.width * 2, // boleh 1.5–3x
-                        ),
-                        child: AppTable(
-                          headers: [
-                            'No',
-                            'Kategori',
-                            'Catatan',
-                            'Status',
-                            'Dilaporkan',
-                            'Update Terakhir',
-                            'Aksi',
-                          ],
-                          rows: [
-                            // {
-                            //   'Pengirim': 'Ahmad Fauzi',
-                            //   'Tanggal': '10 June 2024',
-                            //   'Konfirmasi': 'Terima',
-                            // },
-                            // {
-                            //   'Pengirim': 'Siti Aminah',
-                            //   'Tanggal': '11 June 2024',
-                            //   'Konfirmasi': 'Tolak',
-                            // },
-                          ],
-                          emptyIcon: Icons.check_circle_outline,
-                          emptyTitle: 'Tidak ada catatan',
-                          emptySubtitle: 'Belum ada catatan sikap yang dilaporkan',
-                        ),
-                      )
+                    Text(
+                      'Daftar Catatan Sikap',
+                      style: TextStyle(
+                        color: AppColors.textPrimary,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
+
+                    AppInfoExpandCard(
+                      title: 'Sikap Title Section',
+                      subtitle: 'Sikap Subtitle Section',
+                      details: [
+                        { "label": "Kategori", "value": "Baik" },
+                        { "label": "Catatan", "value": "Ibu Soleha" },
+                        { "label": "Status", "value": "Selesai" },
+                        { "label": "Dilaporkan", "value": "Selesai" },
+                        { "label": "Update Terakhir", "value": "Sudah mulai merubah sikap." },
+                        { "label": "Catatan Siswa", "value": "Masih perlu dipantau." },
+                        { "label": "Aksi", "value": "Perlu latihan lanjutan." },
+                      ],
+                    ),
+                    SizedBox(height: 16),
                   ],
                 )
               )

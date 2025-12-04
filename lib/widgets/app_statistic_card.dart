@@ -7,6 +7,8 @@ class AppStatisticCard extends StatelessWidget {
   final Color bgIconColor;
   final IconData icon;
   final Color iconColor;
+  final Color? indicatorColor;
+  final String? indicatorTitle;
 
   const AppStatisticCard({
     super.key,
@@ -15,6 +17,8 @@ class AppStatisticCard extends StatelessWidget {
     required this.bgIconColor,
     required this.icon,
     required this.iconColor,
+    this.indicatorColor,
+    this.indicatorTitle,
   });
 
   @override
@@ -68,6 +72,29 @@ class AppStatisticCard extends StatelessWidget {
               ),
             ],
           ),
+          if (indicatorColor != null && indicatorTitle != null)   
+          Row(
+            children: [
+              Container(
+                width: 8,
+                height: 8,
+                decoration: BoxDecoration(
+                  color: indicatorColor,
+                  borderRadius: BorderRadius.circular(8)
+                ),
+              ),
+              SizedBox(width: 4),
+              
+              Text(
+                indicatorTitle.toString(),
+                style: TextStyle(
+                  color: indicatorColor,
+                  fontSize: 14,
+                  fontWeight: FontWeight.normal,
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );

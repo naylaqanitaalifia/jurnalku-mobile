@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:jurnalku_mobile/screens/attitude_notes.dart';
+import 'package:jurnalku_mobile/screens/progress.dart';
+import 'package:jurnalku_mobile/screens/witness_request.dart';
 // import 'package:intl/date_symbol_data_local.dart';
 // import 'package:flutter_localizations/flutter_localizations.dart';
-
-import 'screens/account_settings.dart';
-import 'screens/witness_request.dart';
-import 'screens/attitude_notes.dart';
 
 void main() async {
   // WidgetsFlutterBinding.ensureInitialized();
@@ -33,7 +32,9 @@ class MyApp extends StatelessWidget {
       //   GlobalCupertinoLocalizations.delegate,
       // ],
 
-      home: const AttitudeNotes(),
+      // home: const AttitudeNotes(),
+      // home: const Progress(),
+      home: const WitnessRequest(),
     );
   }
 }

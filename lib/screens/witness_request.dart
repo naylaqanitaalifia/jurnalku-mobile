@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:jurnalku_mobile/widgets/app_navbar.dart';
-import 'package:jurnalku_mobile/widgets/app_table.dart';
+import 'package:jurnalku_mobile/widgets/app_info_expand_card.dart';
 import 'package:jurnalku_mobile/utils/app_colors.dart';
 
 class WitnessRequest extends StatelessWidget {
@@ -35,13 +34,14 @@ class WitnessRequest extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                   ),
                 ),
-                const SizedBox(height: 12),
+                const SizedBox(height: 8),
+
                 Text(
                   'Kelola permintaan menjadi saksi dari siswa lain',
                   style: TextStyle(
-                      color: Color(0xFF71758a),
+                      color: AppColors.textSecondary,
                       fontSize: 16,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: FontWeight.normal,
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -64,29 +64,57 @@ class WitnessRequest extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 24),
 
-                AppTable(
-                  headers: [
-                    'Pengirim',
-                    'Tanggal',
-                    'Konfirmasi',
+                // AppTable(
+                //   headers: [
+                //     'Pengirim',
+                //     'Tanggal',
+                //     'Konfirmasi',
+                //   ],
+                //   rows: [
+                //     {
+                //       'Pengirim': 'Ahmad Fauzi',
+                //       'Tanggal': '10 June 2024',
+                //       'Konfirmasi': 'Terima',
+                //     },
+                //     {
+                //       'Pengirim': 'Siti Aminah',
+                //       'Tanggal': '11 June 2024',
+                //       'Konfirmasi': 'Tolak',
+                //     },
+                //   ],
+                //   emptyIcon: Icons.groups_outlined,
+                //   emptyTitle: 'Belum ada permintaan',
+                //   emptySubtitle: 'Belum ada yang mengirim permintaan saksi kepada Anda',
+                // ),
+
+                AppInfoExpandCard(
+                  title: 'Saksi Title Section',
+                  subtitle: 'Saksi Subtitle Section',
+                  details: [
+                    { "label": "Kategori", "value": "Baik" },
+                    { "label": "Catatan", "value": "Ibu Soleha" },
+                    { "label": "Status", "value": "20 Februari 2025" },
+                    { "label": "Dilaporkan", "value": "Selesai" },
+                    { "label": "Update Terakhir", "value": "Sudah sangat baik, lanjutkan!" },
+                    { "label": "Catatan Siswa", "value": "Perlu latihan lanjutan." },
+                    { "label": "Aksi", "value": "Perlu latihan lanjutan." },
                   ],
-                  rows: [
-                    // {
-                    //   'Pengirim': 'Ahmad Fauzi',
-                    //   'Tanggal': '10 June 2024',
-                    //   'Konfirmasi': 'Terima',
-                    // },
-                    // {
-                    //   'Pengirim': 'Siti Aminah',
-                    //   'Tanggal': '11 June 2024',
-                    //   'Konfirmasi': 'Tolak',
-                    // },
+                ),
+                SizedBox(height: 16),
+
+                AppInfoExpandCard(
+                  title: 'Sikap Title Section',
+                  subtitle: 'Sikap Subtitle Section',
+                  details: [
+                    { "label": "Kompetensi", "value": "Menerapkan widget Expansion Tile" },
+                    { "label": "Guru", "value": "Ibu Soleha" },
+                    { "label": "Tanggal", "value": "20 Februari 2025" },
+                    { "label": "Status", "value": "Selesai" },
+                    { "label": "Catatan Guru", "value": "Sudah sangat baik, lanjutkan!" },
+                    { "label": "Catatan Siswa", "value": "Perlu latihan lanjutan." },
                   ],
-                  emptyIcon: Icons.groups_outlined,
-                  emptyTitle: 'Belum ada permintaan',
-                  emptySubtitle: 'Belum ada yang mengirim permintaan saksi kepada Anda',
                 ),
               ],
             ),
