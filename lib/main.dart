@@ -32,9 +32,9 @@ class MyApp extends StatelessWidget {
       //   GlobalCupertinoLocalizations.delegate,
       // ],
 
-      // home: const AttitudeNotes(),
+      home: const AttitudeNotes(),
       // home: const Progress(),
-      home: const WitnessRequest(),
+      // home: const WitnessRequest(),
     );
   }
 }

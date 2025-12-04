@@ -49,31 +49,18 @@ class MobileApps extends StatelessWidget {
 
                 AppInfoExpandCard(
                   title: 'Widget Expansion Tile',
-                  subtitle: 'Belajar Widget Expansion Tile',
+                  // subtitle: 'Belajar Widget Expansion Tile',
+                  status: 'Selesai',
                   details: [
                     { "label": "Kompetensi", "value": "Menerapkan widget Expansion Tile" },
                     { "label": "Guru", "value": "Ibu Soleha" },
                     { "label": "Tanggal", "value": "20 Februari 2025" },
-                    { "label": "Status", "value": "Selesai" },
+                    // { "label": "Status", "value": "Selesai" },
                     { "label": "Catatan Guru", "value": "Sudah sangat baik, lanjutkan!" },
                     { "label": "Catatan Siswa", "value": "Perlu latihan lanjutan." },
                   ],
                 ),
                 SizedBox(height: 16),
-
-                AppInfoExpandCard(
-                  title: 'Widget Expansion Tile',
-                  subtitle: 'Belajar Widget Expansion Tile',
-                  details: [
-                    { "label": "Kompetensi", "value": "Menerapkan widget Expansion Tile" },
-                    { "label": "Guru", "value": "Ibu Soleha" },
-                    { "label": "Tanggal", "value": "20 Februari 2025" },
-                    { "label": "Status", "value": "Selesai" },
-                    { "label": "Catatan Guru", "value": "Sudah sangat baik, lanjutkan!" },
-                    { "label": "Catatan Siswa", "value": "Perlu latihan lanjutan." },
-                  ],
-                ),
-
               ],
             )
           )

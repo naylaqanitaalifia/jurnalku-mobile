@@ -128,15 +128,15 @@ const AttitudeNotes({super.key});
                     ),
 
                     AppInfoExpandCard(
-                      title: 'Sikap Title Section',
-                      subtitle: 'Sikap Subtitle Section',
+                      title: 'Terlambat 10 menit',
+                      status: 'Diproses',
+                      // subtitle: 'Diproses',
                       details: [
-                        { "label": "Kategori", "value": "Baik" },
-                        { "label": "Catatan", "value": "Ibu Soleha" },
-                        { "label": "Status", "value": "Selesai" },
-                        { "label": "Dilaporkan", "value": "Selesai" },
-                        { "label": "Update Terakhir", "value": "Sudah mulai merubah sikap." },
-                        { "label": "Catatan Siswa", "value": "Masih perlu dipantau." },
+                        { "label": "Kategori", "value": "Terlambat" },
+                        { "label": "Catatan", "value": "Kedatangan terlambat 10 menit" },
+                        // { "label": "Status", "value": "Diproses" },
+                        { "label": "Dilaporkan", "value": "1 Desember 2025" },
+                        { "label": "Update Terakhir", "value": "2 Desember 2025" },
                         { "label": "Aksi", "value": "Perlu latihan lanjutan." },
                       ],
                     ),

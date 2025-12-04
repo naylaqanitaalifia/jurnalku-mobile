@@ -49,26 +49,13 @@ class ProjectWork extends StatelessWidget {
 
                 AppInfoExpandCard(
                   title: 'Project Work',
-                  subtitle: 'Kompetensi dan materi pembelajaran',
+                  status: 'Selesai',
+                  // subtitle: 'Kompetensi dan materi pembelajaran',
                   details: [
                     { "label": "Kompetensi", "value": "Menerapkan konsep project work" },
                     { "label": "Guru", "value": "Ibu Dewi Lestari" },
                     { "label": "Tanggal", "value": "20 Februari 2025" },
-                    { "label": "Status", "value": "Selesai" },
-                    { "label": "Catatan Guru", "value": "Sudah sangat baik, lanjutkan!" },
-                    { "label": "Catatan Siswa", "value": "Perlu latihan lanjutan." },
-                  ],
-                ),
-                SizedBox(height: 16),
-
-                AppInfoExpandCard(
-                  title: 'Project Work',
-                  subtitle: 'Kompetensi dan materi pembelajaran',
-                  details: [
-                    { "label": "Kompetensi", "value": "Menerapkan konsep project work" },
-                    { "label": "Guru", "value": "Ibu Dewi Lestari" },
-                    { "label": "Tanggal", "value": "20 Februari 2025" },
-                    { "label": "Status", "value": "Selesai" },
+                    // { "label": "Status", "value": "Selesai" },
                     { "label": "Catatan Guru", "value": "Sudah sangat baik, lanjutkan!" },
                     { "label": "Catatan Siswa", "value": "Perlu latihan lanjutan." },
                   ],

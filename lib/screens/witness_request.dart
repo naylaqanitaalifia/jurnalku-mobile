@@ -90,32 +90,16 @@ class WitnessRequest extends StatelessWidget {
                 // ),
 
                 AppInfoExpandCard(
-                  title: 'Saksi Title Section',
-                  subtitle: 'Saksi Subtitle Section',
+                  title: "Mengerjakan tugas flutter",
+                  // subtitle: "2 Desember 2025",
+                  status: "Selesai",
                   details: [
-                    { "label": "Kategori", "value": "Baik" },
-                    { "label": "Catatan", "value": "Ibu Soleha" },
-                    { "label": "Status", "value": "20 Februari 2025" },
-                    { "label": "Dilaporkan", "value": "Selesai" },
-                    { "label": "Update Terakhir", "value": "Sudah sangat baik, lanjutkan!" },
-                    { "label": "Catatan Siswa", "value": "Perlu latihan lanjutan." },
-                    { "label": "Aksi", "value": "Perlu latihan lanjutan." },
+                    { "label": "Pengirim", "value": "Nayla Qanita Alifia" },
+                    { "label": "Tanggal", "value": "2 Desember 2025" },
+                    { "label": "Konfirmasi", "value": "tes" },
                   ],
                 ),
                 SizedBox(height: 16),
-
-                AppInfoExpandCard(
-                  title: 'Sikap Title Section',
-                  subtitle: 'Sikap Subtitle Section',
-                  details: [
-                    { "label": "Kompetensi", "value": "Menerapkan widget Expansion Tile" },
-                    { "label": "Guru", "value": "Ibu Soleha" },
-                    { "label": "Tanggal", "value": "20 Februari 2025" },
-                    { "label": "Status", "value": "Selesai" },
-                    { "label": "Catatan Guru", "value": "Sudah sangat baik, lanjutkan!" },
-                    { "label": "Catatan Siswa", "value": "Perlu latihan lanjutan." },
-                  ],
-                ),
               ],
             ),
           )

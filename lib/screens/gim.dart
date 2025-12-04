@@ -49,30 +49,18 @@ class Gim extends StatelessWidget {
 
                 AppInfoExpandCard(
                   title: 'GIM Title Section',
-                  subtitle: 'GIM Subtitle Section',
+                  status: 'Selesai',
+                  // subtitle: 'GIM Subtitle Section',
                   details: [
                     { "label": "Kompetensi", "value": "Menerapkan widget Expansion Tile" },
                     { "label": "Guru", "value": "Ibu Soleha" },
                     { "label": "Tanggal", "value": "20 Februari 2025" },
-                    { "label": "Status", "value": "Selesai" },
+                    // { "label": "Status", "value": "Selesai" },
                     { "label": "Catatan Guru", "value": "Sudah sangat baik, lanjutkan!" },
                     { "label": "Catatan Siswa", "value": "Perlu latihan lanjutan." },
                   ],
                 ),
                 SizedBox(height: 16),
-
-                AppInfoExpandCard(
-                  title: 'GIM Title Section',
-                  subtitle: 'GIM Subtitle Section',
-                  details: [
-                    { "label": "Kompetensi", "value": "Menerapkan widget Expansion Tile" },
-                    { "label": "Guru", "value": "Ibu Soleha" },
-                    { "label": "Tanggal", "value": "20 Februari 2025" },
-                    { "label": "Status", "value": "Selesai" },
-                    { "label": "Catatan Guru", "value": "Sudah sangat baik, lanjutkan!" },
-                    { "label": "Catatan Siswa", "value": "Perlu latihan lanjutan." },
-                  ],
-                ),
               ],
             )
           )
