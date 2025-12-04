@@ -365,6 +365,8 @@ class _StudentDirectoryState extends State<StudentDirectory> {
 
                           // Start
                           ExpansionTile(
+                            shape: BorderDirectional(),
+                            collapsedShape: BorderDirectional(),
                             onExpansionChanged: (bool expanded) {
                               setState(() {
                                 _isExpanded = expanded;
@@ -413,6 +415,7 @@ class _StudentDirectoryState extends State<StudentDirectory> {
                                       });
                                     },
                                   ),
+                                  const SizedBox(height: 10),
                                   DropdownButtonFormField<String>(
                                     value: _selectedRayon,
                                     decoration: InputDecoration(
@@ -430,6 +433,7 @@ class _StudentDirectoryState extends State<StudentDirectory> {
                                       });
                                     },
                                   ),
+                                  const SizedBox(height: 10),
                                   DropdownButtonFormField<String>(
                                     value: _selectedJurusan,
                                     decoration: InputDecoration(
