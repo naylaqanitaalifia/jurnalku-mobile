@@ -1,7 +1,7 @@
 // main.dart
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:jurnalku_mobile/screens/general/login_page.dart';
+import 'package:jurnalku_mobile/screens/general/explore_students_direction.dart';
 import 'package:jurnalku_mobile/screens/main_wrapper.dart';
 
 void main() {
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         fontFamily: GoogleFonts.poppins().fontFamily,
         scaffoldBackgroundColor: const Color(0xFFF8FAFC),
       ),
-      home: const LoginPage(), // ← tetap login dulu
+      home: const StudentDirectory(), // ← tetap login dulu
       // home: const MainWrapper(), // ← uncomment kalau mau langsung ke dashboard (untuk testing)
     );
   }

@@ -3,6 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:jurnalku_mobile/widgets/app_navbar.dart';
 
+// Import widget terpisah
+import 'package:jurnalku_mobile/widgets/profile/overview_tab_widget.dart';
+import 'package:jurnalku_mobile/widgets/profile/portfolio_tab_widget.dart';
+import 'package:jurnalku_mobile/widgets/profile/certificates_tab_widget.dart';
+
 class StudentProfilePage extends StatefulWidget {
   const StudentProfilePage({Key? key}) : super(key: key);
 
@@ -10,7 +15,8 @@ class StudentProfilePage extends StatefulWidget {
   State<StudentProfilePage> createState() => _StudentProfilePageState();
 }
 
-class _StudentProfilePageState extends State<StudentProfilePage> with SingleTickerProviderStateMixin {
+class _StudentProfilePageState extends State<StudentProfilePage>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   final String name = "M.Reysha Nova Arshandy";
@@ -40,7 +46,6 @@ class _StudentProfilePageState extends State<StudentProfilePage> with SingleTick
       backgroundColor: const Color(0xFFF8FAFC),
       body: Column(
         children: [
-          // Navbar Profil (hanya ikon Settings biru polos)
           AppNavbar(
             name: name,
             kelas: kelas,
@@ -48,14 +53,12 @@ class _StudentProfilePageState extends State<StudentProfilePage> with SingleTick
             isProfilePage: true,
             title: "Profil Saya",
           ),
+          
 
-          // KONTEN UTAMA
           Expanded(
             child: NestedScrollView(
               headerSliverBuilder: (context, innerBoxScrolled) => [
-                SliverToBoxAdapter(
-                  child: _buildHeader(),
-                ),
+                SliverToBoxAdapter(child: _buildHeader()),
                 SliverPersistentHeader(
                   pinned: true,
                   delegate: _SliverTabBarDelegate(
@@ -68,7 +71,16 @@ class _StudentProfilePageState extends State<StudentProfilePage> with SingleTick
                       tabs: const [
                         Tab(text: "Overview"),
                         Tab(text: "Portfolio"),
-                        Tab(text: "Sertifikat"),
+                        Tab(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text("Sertifikat"),
+                              SizedBox(width: 6),
+                              // Badge akan di-update dari CertificatesTabWidget nanti via callback
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -77,9 +89,9 @@ class _StudentProfilePageState extends State<StudentProfilePage> with SingleTick
               body: TabBarView(
                 controller: _tabController,
                 children: const [
-                  OverviewTab(),
-                  PortfolioTab(),
-                  CertificatesTab(),
+                  OverviewTab(),           // Widget terpisah
+                  PortfolioTabContent(),   // Widget terpisah
+                  CertificatesTabContent(), // Widget terpisah
                 ],
               ),
             ),
@@ -89,16 +101,14 @@ class _StudentProfilePageState extends State<StudentProfilePage> with SingleTick
     );
   }
 
-  // HEADER YANG SUDAH DIRAPHIKAN (TIDAK TABRAKAN LAGI!)
   Widget _buildHeader() {
     return Container(
       color: Colors.white,
-      padding: const EdgeInsets.only(bottom: 100), // INI KUNCI: beri ruang cukup untuk tab
+      padding: const EdgeInsets.only(bottom: 160),
       child: Stack(
         clipBehavior: Clip.none,
         alignment: Alignment.center,
         children: [
-          // Cover
           CachedNetworkImage(
             imageUrl: coverUrl,
             height: 260,
@@ -116,24 +126,17 @@ class _StudentProfilePageState extends State<StudentProfilePage> with SingleTick
               ),
             ),
           ),
-
-          // Foto Profil + Nama + Info (posisi dikontrol ketat)
           Positioned(
-            bottom: -90, // naikkan sedikit biar tidak terlalu turun
+            bottom: -160,
             child: Column(
               children: [
-                // Foto Profil
                 Container(
                   padding: const EdgeInsets.all(6),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     shape: BoxShape.circle,
                     boxShadow: [
-                      BoxShadow(
-                        color: Colors.black26,
-                        blurRadius: 15,
-                        offset: Offset(0, 8),
-                      ),
+                      BoxShadow(color: Colors.black26, blurRadius: 15, offset: const Offset(0, 6)),
                     ],
                   ),
                   child: CircleAvatar(
@@ -141,34 +144,28 @@ class _StudentProfilePageState extends State<StudentProfilePage> with SingleTick
                     backgroundImage: CachedNetworkImageProvider(photoUrl),
                   ),
                 ),
-
-                const SizedBox(height: 20),
-
-                // Nama
-                Text(
-                  name,
-                  style: TextStyle(
-                    fontSize: 26,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black87,
-                  ),
-                  textAlign: TextAlign.center,
-                ),
-
+                const SizedBox(height: 25),
+                Text(name, style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold, color: Colors.black87)),
                 const SizedBox(height: 8),
-
-                // NIS • Kelas • Rayon
-                Text(
-                  "$nis • $kelas • $rayon",
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.grey[700],
-                    fontWeight: FontWeight.w500,
+                Text("$nis • $kelas • $rayon", style: TextStyle(fontSize: 16, color: Colors.grey[700], fontWeight: FontWeight.w500)),
+                const SizedBox(height: 10),
+                GestureDetector(
+                  onTap: () {
+                    // TODO: implement share profile
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text("Fitur share segera hadir")),
+                    );
+                  },
+                  child: Container(
+                    padding: const EdgeInsets.all(14),
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(Icons.share_outlined,
+                        size: 24,
+                        color: Color(0xFF374151)),
                   ),
                 ),
-
-                // Jarak aman sebelum tab muncul
-                const SizedBox(height: 10), // INI YANG BIKIN TAB TIDAK TABRAKAN!
               ],
             ),
           ),
@@ -178,51 +175,18 @@ class _StudentProfilePageState extends State<StudentProfilePage> with SingleTick
   }
 }
 
-// Sticky TabBar
 class _SliverTabBarDelegate extends SliverPersistentHeaderDelegate {
   final TabBar tabBar;
   const _SliverTabBarDelegate(this.tabBar);
 
-  @override
-  double get minExtent => tabBar.preferredSize.height;
-  @override
-  double get maxExtent => tabBar.preferredSize.height;
+  @override double get minExtent => tabBar.preferredSize.height;
+  @override double get maxExtent => tabBar.preferredSize.height;
 
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return Container(
-      color: Colors.white,
-      child: tabBar,
-    );
+    return Container(color: Colors.white, child: tabBar);
   }
 
   @override
   bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) => false;
-}
-
-// Placeholder Tabs
-class OverviewTab extends StatelessWidget {
-  const OverviewTab({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        "Overview\nStatistik kompetensi akan muncul di sini",
-        style: TextStyle(fontSize: 18, color: Colors.grey[700]),
-        textAlign: TextAlign.center,
-      ),
-    );
-  }
-}
-
-class PortfolioTab extends StatelessWidget {
-  const PortfolioTab({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) => const Center(child: Text("Portfolio", style: TextStyle(fontSize: 18)));
-}
-
-class CertificatesTab extends StatelessWidget {
-  const CertificatesTab({Key? key}) : super(key: key);
-  @override
-  Widget build(BuildContext context) => const Center(child: Text("Sertifikat", style: TextStyle(fontSize: 18)));
 }

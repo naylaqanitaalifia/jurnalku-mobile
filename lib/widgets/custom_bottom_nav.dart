@@ -13,7 +13,7 @@ class CustomBottomNav extends StatelessWidget {
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext) {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -35,25 +35,31 @@ class CustomBottomNav extends StatelessWidget {
         unselectedFontSize: 11,
         backgroundColor: Colors.white,
         elevation: 0,
+        showUnselectedLabels: true,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined, size: 28),
-            activeIcon: Icon(Icons.home, size: 28),
+            icon: Icon(Icons.home_outlined),
+            activeIcon: Icon(Icons.home),
             label: "Beranda",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.menu_book_outlined, size: 28),
-            activeIcon: Icon(Icons.menu_book, size: 28),
+            icon: Icon(Icons.menu_book_outlined),
+            activeIcon: Icon(Icons.menu_book),
             label: "Jurnal",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.bar_chart_outlined, size: 28),
-            activeIcon: Icon(Icons.bar_chart, size: 28),
+            icon: Icon(Icons.explore_outlined),
+            activeIcon: Icon(Icons.explore),
+            label: "Jelajahi",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.bar_chart_outlined),
+            activeIcon: Icon(Icons.bar_chart),
             label: "Progress",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline, size: 28),
-            activeIcon: Icon(Icons.person, size: 28),
+            icon: Icon(Icons.person_outline),
+            activeIcon: Icon(Icons.person),
             label: "Profil",
           ),
         ],

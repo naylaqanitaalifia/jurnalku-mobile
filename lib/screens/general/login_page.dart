@@ -144,7 +144,7 @@ class _LoginPageState extends State<LoginPage> {
                             return "Username/NIS wajib diisi";
                           }
                           return null;
-                        },
+                        }, initialValue: '',
                       ),
                       const SizedBox(height: 20),
 
@@ -159,7 +159,7 @@ class _LoginPageState extends State<LoginPage> {
                             return "Password wajib diisi";
                           }
                           return null;
-                        },
+                        }, initialValue: '',
                       ),
                       const SizedBox(height: 32),
 
