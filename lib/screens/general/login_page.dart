@@ -5,6 +5,10 @@ import 'package:jurnalku_mobile/screens/main_wrapper.dart';
 import 'package:jurnalku_mobile/widgets/app_input_field.dart';
 import 'package:jurnalku_mobile/screens/explore/explore_screen.dart';
 
+// Providers
+import 'package:provider/provider.dart';
+import 'package:jurnalku_mobile/providers/auth_provider.dart';
+
 // SERVICE & MODEL
 import 'package:jurnalku_mobile/services/user_service.dart';
 import 'package:jurnalku_mobile/models/user_model.dart';
@@ -86,7 +90,9 @@ class _LoginPageState extends State<LoginPage> {
       if (user == null) throw Exception("User tidak ditemukan");
       if (inputPassword != user.nis) throw Exception("Password salah");
 
-      _loggedInUser = user;
+      // _loggedInUser = user;
+      context.read<AuthProvider>().login(user);
+
 
       if (!mounted) return;
 
