@@ -13,8 +13,8 @@ class AppInputField extends StatefulWidget {
   const AppInputField({
     super.key, 
     required this.label,
+    required this.controller,
     this.hintText,
-    this.controller,
     this.keyboardType = TextInputType.text,
     this.isPassword = false,
     this.obscureText = false,

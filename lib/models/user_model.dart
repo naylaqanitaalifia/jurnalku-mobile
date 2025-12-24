@@ -1,3 +1,4 @@
+//lib/models/user_model.dart
 import 'portfolio_model.dart';
 import 'social_link_model.dart';
 
@@ -10,6 +11,7 @@ class User {
   final String photo;
   final List<Portfolio> portfolios;
   final List<SocialLink> socialLinks;
+  final List<dynamic> certificates; // Tambahkan ini sesuai controller Laravel
 
   User({
     required this.id,
@@ -20,13 +22,14 @@ class User {
     required this.photo,
     required this.portfolios,
     required this.socialLinks,
+    required this.certificates,
   });
 
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
       id: json['id'],
       name: json['name'],
-      nis: json['nis'],
+      nis: json['nis'].toString(), // Pastikan string agar tidak error
       rombel: json['rombel'],
       rayon: json['rayon'],
       photo: json['photo'] ?? 'none',
@@ -36,6 +39,7 @@ class User {
       socialLinks: (json['social_links'] as List? ?? [])
           .map((e) => SocialLink.fromJson(e))
           .toList(),
+      certificates: (json['certificates'] as List? ?? []), // Ambil list mentah
     );
   }
 }

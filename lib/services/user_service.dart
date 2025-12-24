@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:jurnalku_mobile/models/user_model.dart';
 
 class UserService {
-  final String baseUrl = 'http://15.15.5.106:8000/api';
+  final String baseUrl = 'http://127.0.0.1:8000/api';
 
   Future<List<User>> fetchUsers() async {
     final url = Uri.parse('$baseUrl/users');

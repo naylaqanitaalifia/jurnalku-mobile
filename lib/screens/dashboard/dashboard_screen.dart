@@ -8,7 +8,6 @@ import 'package:jurnalku_mobile/screens/profile/student_profile_page.dart';
 import 'package:jurnalku_mobile/screens/progress/progress_screen.dart';
 import 'package:jurnalku_mobile/screens/witness_request/witness_request.dart';
 import 'package:jurnalku_mobile/widgets/app_navbar.dart';
-import 'package:jurnalku_mobile/widgets/custom_bottom_nav.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({Key? key}) : super(key: key);
